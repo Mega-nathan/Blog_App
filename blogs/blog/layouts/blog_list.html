@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<style>
+    table{
+    margin: -22vh 0vh 0vh 2vh;
+    width: 130%;
+    border-collapse: collapse;
+    }
+    th,tr{
+        border: 1px solid #dddd;
+        padding: 8px;
+        height: 6vh;
+        text-align: center;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .blog-list-head{
+        margin: 3vh 0vh 0vh 5vh;
+    }
+    .edit,.delete{
+        text-decoration: none;
+        color: black;
+    }
+    .edit:hover,.delete:hover{
+        color: crimson;
+    }
+</style>
+<body>
+    <main>{% block content %}{% endblock content %}</main>
+    <div class="bg-container">
+        <div class="left">
+            <button class="add-button">Add Blogs</button>
+            <button class="list-button">Blog Lists</button>
+            <button class="home">Home</button>
+        </div>
+        <div class="blog-lists">
+            <h1 class="blog-list-head">All Blogs</h1>
+            <table>
+                <tr>
+                    <th>Author Name</th>
+                    <th>Blog Title</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for blog in blogs %}
+                <tr>
+                    <td class="values">{{blog.userName}}</td>
+                    <td class="values">{{blog.title}}</td>
+                    <td class="values">{{blog.created_at}}</td>
+                    <td><a class="edit" href="{% url 'editBlog' blog.id %}">Edit</a></td>
+                    <td><a class="delete" href="{% url 'viewBlog' %}?dels={{blog.id}}">X</a></td>
+                    <br>
+                </tr>
+                {% endfor %}
+            </table>
+            
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('.home').addEventListener('click',function(){
+        window.location.href='http://127.0.0.1:8000/';
+        });
+        document.querySelector('.add-button').addEventListener('click',function(){
+            window.location.href='http://127.0.0.1:8000/createBlog'
+        })
+    </script>
+</body>
+</html>

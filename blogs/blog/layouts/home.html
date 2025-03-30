@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+<style>
+    .active{
+        background-color: black;
+        color: white;
+    }
+</style>
+{% block content %}
+    <div class="bg-home">
+        <div class="body-container">
+            <h1 class="body-head">Latest Blogs</h1>
+            <p class="body-para">A blog, short for weblog, is a frequently updated web page used for personal commentary or business content.Blogs are often interactive and include sections. </p>
+            <div class="category">
+                <a class="category-val All" href="{% url 'home' %}">All</a>
+                <a class="category-val Tech " href="{% url 'home' %}?cat=Tech">Tech</a>
+                <a class="category-val Lifestyle" href="{% url 'home' %}?cat=Lifestyle">Lifestyle</a>
+                <a class="category-val Business" href="{% url 'home' %}?cat=Business">business</a>
+                <a class="category-val Foods " href="{% url 'home' %}?cat=Foods">Foods</a>
+            </div>
+        </div>
+        <div class="all-blogs"> <!-- Blogs will be uploaded here -->
+            {% for x in blog %}
+            <div class="box1">
+                {% if x.thumbnail %}
+                <img src="{{ x.thumbnail.url }}" alt="Blog Image">
+                {% else %}
+                <img src="{% static 'images/default.png' %}" alt="Default Image"> <!-- Provide a default image -->
+                {% endif %}
+                <p class="box1-category">{{x.category}}</p>
+                <h2 class="box1-title">{{x.title|truncatechars:50 }}</h2>
+                <p class="box1-content">{{x.content|truncatewords:16 }}</p>
+                <a class="box1-read" href="{% url 'detailed_blog' x.id %}">Read More &rarr;</a>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+    </div>
+    <script>
+
+        const all=document.querySelector('.All');
+        const tech=document.querySelector('.Tech');
+        const lifestyle=document.querySelector('.Lifestyle');   
+        const business=document.querySelector('.Business'); 
+        const foods=document.querySelector('.Foods');
+
+        const urlparams=new URLSearchParams(window.location.search);
+        const category=urlparams.get('cat');
+        console.log(category);
+
+        document.querySelectorAll('.category').forEach(el => el.classList.remove('active'));
+
+        if (category === 'Tech') {
+           tech.classList.add('active');
+        } else if (category === 'Lifestyle') {
+            lifestyle.classList.add('active');
+        } else if (category === 'Business') {
+            business.classList.add('active');
+        } else if (category === 'Foods') {
+            foods.classList.add('active');
+        } else {
+            all.classList.add('active'); // Default to "All"
+        }
+        
+        document.querySelector('.start-button').addEventListener('click',function(){
+            window.location.href='http://127.0.0.1:8000/createBlog';
+        });
+    </script>
+{% endblock content %}

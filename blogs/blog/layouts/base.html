@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog Today{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    
+    <div class="bg-container">  <!-- Body -->
+        <nav class="bg-navbar"> <!-- Navbar -->
+            <div class="nav-left">  <!-- Navbar left side -->
+                <img class="nav-logo" src="{% static 'images/blog.png' %}" alt="blog_logo">
+            <h1 class="nav-head">Blog Today</h1>   
+            </div>
+            <div class="nav-right">
+                <button class="start-button">Get Started &rarr;</button>
+            </div>
+        </nav>
+    </div>
+    <main>{% block content %}{% endblock content %}</main>
+    <script src="{% static 'script/base.js' %}"></script>
+</body>
+</html>

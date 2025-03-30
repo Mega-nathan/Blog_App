@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <main>{% block content %}{% endblock content %}</main>
+    <div class="bg-container">
+        <div class="left">
+            <button class="add-button">Add Blogs</button>
+            <button class="list-button">Blog Lists</button>
+            <button class="home">Home</button>
+        </div>
+        <div class="right">
+            <div class="create-blog">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h2 class="blog-user">UserName</h2>
+                    {{ form.userName }}
+                    <h2 class="blog-thumbnail">Upload Thumbnail</h2>
+                    {{ form.thumbnail }}
+                    <h2 class="blog-title">Blog Title</h2>
+                    {{ form.title }}
+                    <h2 class="blog-description">Blog Description</h2>
+                    {{ form.content }}
+                    <h2 class="blog-category">Blog Category</h2>
+                    {{ form.category }}
+                    <br>
+                    <button class="save">Save</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        document.querySelector('.home').addEventListener('click',function(){
+        window.location.href='http://127.0.0.1:8000/';
+        });
+        document.querySelector('.list-button').addEventListener('click',function(){
+            window.location.href="http://127.0.0.1:8000/viewBlog"
+        })
+    </script>
+</body>
+</html>

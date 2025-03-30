@@ -1,0 +1,178 @@
+*{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.bg-container{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    height: 15vh;
+}
+.bg-navbar{
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    height: 12vh;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-left{
+    display: flex;
+    flex-direction: row;
+}
+.nav-head{
+    font-size: 2.2em;
+    margin-top: 3vh;
+    margin-left: 1vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+.nav-logo{
+    height: 12vh;
+}
+.nav-right{
+    margin-right: 5vh;
+}
+.start-button{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 7vh;
+    width: 13vw;
+    background-color: black;
+    color: white;
+    font-size: 1.85em;
+    border-radius: 3vh;
+    margin-top: 2vh;
+}
+.start-button:hover{
+    background-color: white;
+    color: black;
+}
+
+/* for home.html */
+
+.body-head{
+    margin: 0vh 9vh 6vh 0vh;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.body-para{
+    text-align: center; /* Centers the text */
+    font-weight: normal;
+    font-size: 20px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1px;
+    line-height: 1.5; 
+    width: 60%; 
+    margin: 0vh 0vh 0vh 40vh;
+}
+.category{
+    text-align: center;
+    margin-top: 8vh;
+    margin-right: 6vh;
+}
+.category-val{
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3em;
+    padding: 2vh;
+    color: black;
+}
+.category-val:hover{
+    background-color: black;
+    color: white;
+}
+.active{
+    background-color: black;
+    color: white;
+}
+
+/* Blog Layout */
+
+.box1{
+    height: 55vh;
+    width: 19vw;
+    border: 3px solid black;
+    margin: 7vh 0px 0px 4vh;
+    border-radius: 10px;
+}
+.all-blogs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.box1 img{
+    height: 40%;
+    width: 100%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.box1-category{
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    padding: 4px;
+    display: inline-block;
+}
+.box1-title{
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+.box1-content{
+    margin: 1.5vh 0vh 2vh 1vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 1.04em;
+}
+.box1-read{
+    margin-left: 1vh;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* detailed Page */
+.blog--title{
+    margin: 0vh 0vh 0vh 40vh ;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3em;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 60%;
+}
+.blog--user{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 4vh 12vh 0vh 0vh;
+    font-size: 2em;
+}
+.blog--thumbnail{
+    height: 60vh;
+    width: 50vw;
+    margin: 10vh 0vh 0vh 45.5vh; 
+    border: 4px solid white;
+}
+.blog--details{
+    height: 60vh;
+    background-color: grey;
+    padding-top: 4%;   
+}
+.blog--content{
+    width: 50vw;
+    margin-left: 45.5vh;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+}

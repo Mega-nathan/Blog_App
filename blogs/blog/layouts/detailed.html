@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {% endblock title %}
+{% block content %}
+<div class="blog--details">
+<h1 class="blog--title">{{blog_post.title}}</h1>
+<h2 class="blog--user">{{blog_post.userName}}</h2>
+{% if blog_post.thumbnail %}
+<img class="blog--thumbnail" src="{{blog_post.thumbnail.url}}" alt="blog--thumbnail">
+{% else %}
+<img class="blog--thumbnail" src="{% static 'images/default.png' %}" alt="Default Image"> <!-- Provide a default image -->
+{% endif %}
+<p class="blog--content">{{ blog_post.content|linebreaksbr }}</p>
+</div>
+{% endblock content %}
